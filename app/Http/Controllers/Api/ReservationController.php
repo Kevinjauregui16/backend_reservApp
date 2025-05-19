@@ -19,17 +19,45 @@ class ReservationController extends Controller
     /**
      * Store a newly created resource in storage.
      */
+    // public function store(Request $request)
+    // {
+    //     $validated = $request->validate([
+    //         'service_id' => 'required|exists:services,id',
+    //         'user_id' => 'required|exists:users,id',
+    //         'start_time' => 'required|date_format:Y-m-d H:i:s',
+    //         'end_time' => 'required|date_format:Y-m-d H:i:s',
+    //     ]);
+
+    //     $reservation = Reservation::create($validated);
+
+    //     return response()->json($reservation, 201);
+    // }
     public function store(Request $request)
     {
-         $validated = $request->validate([
+        $validated = $request->validate([
             'service_id' => 'required|exists:services,id',
-            'reservation_time' => 'required|date_format:Y-m-d H:i:s',
+            'user_id' => 'required|exists:users,id',
+            'start_time' => 'required|date_format:Y-m-d H:i:s',
+            'end_time' => 'required|date_format:Y-m-d H:i:s',
         ]);
 
-        $reservation = Reservation::create([
-            ...$validated,
-            'user_clerk_id' => $request->clerk_user_id, // desde middleware
-        ]);
+        if (strtotime($validated['start_time']) < strtotime(now())) {
+            return response()->json(['message' => 'No puedes reservar en una fecha pasada.'], 422);
+        }
+
+        // Verificar si ya existe una reserva en ese horario para el mismo servicio
+        $conflict = Reservation::where('service_id', $validated['service_id'])
+            ->where(function ($query) use ($validated) {
+                $query->where('start_time', '<', $validated['end_time'])
+                    ->where('end_time', '>', $validated['start_time']);
+            })
+            ->exists();
+
+        if ($conflict) {
+            return response()->json(['message' => 'El horario ya está reservado para este servicio.'], 409);
+        }
+
+        $reservation = Reservation::create($validated);
 
         return response()->json($reservation, 201);
     }
@@ -40,6 +68,12 @@ class ReservationController extends Controller
     public function show($id)
     {
         return response()->json(Reservation::with('service')->findOrFail($id));
+    }
+
+    public function getReservationsByService($id)
+    {
+        $reservations = Reservation::where('service_id', $id)->with('service')->get();
+        return response()->json($reservations);
     }
 
     /**

@@ -16,8 +16,15 @@ class Service extends Model
         'location',
         'description',
         'duration',
-        'price'
+        'price',
+        'start_time',
+        'end_time',
     ];
+
+    public function schedules()
+    {
+        return $this->hasMany(ServiceSchedule::class);
+    }
 
     public function reservations()
     {

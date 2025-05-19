@@ -62,6 +62,37 @@ class ServiceController extends Controller
         return response()->json($service);
     }
 
+    public function searchService($name)
+    {
+        $services = Service::whereRaw('LOWER(name) LIKE ?', ['%' . strtolower($name) . '%'])->get();
+        return response()->json($services);
+    }
+
+    public function serviceByCategory($category)
+    {
+        $services = Service::whereRaw('LOWER(category) = ?', [strtolower($category)])->get();
+        return response()->json($services);
+    }
+
+    public function filterService(Request $request)
+    {
+        $name = $request->query('name');
+        $location = $request->query('location');
+
+        $query = Service::query();
+
+        if ($name) {
+            $query->whereRaw('LOWER(name) LIKE ?', ['%' . strtolower($name) . '%']);
+        }
+        if ($location) {
+            $query->whereRaw('LOWER(location) LIKE ?', ['%' . strtolower($location) . '%']);
+        }
+
+        $services = $query->get();
+
+        return response()->json($services);
+    }
+
     /**
      * Remove the specified resource from storage.
      */
