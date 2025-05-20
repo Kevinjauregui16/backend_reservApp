@@ -1,66 +1,109 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# 📅 ReservApp
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+[🌐 Ir a ReservApp](https://reservappclerk.netlify.app/) <!-- Cambia esta URL por la de tu app si es necesario -->
 
-## About Laravel
+---
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## 🎬 Demo en video
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+<div align="center">
+  <video src="./readme-assets/demo.mp4" controls width="600">
+    Tu navegador no soporta la reproducción de video.
+  </video>
+</div>
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+---
 
-## Learning Laravel
+## 🖼️ Vistas previas de la aplicación
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+<div align="center">
+  <img src="./readme-assets/image1.png" alt="Vista previa 1" width="180"/>
+  <img src="./readme-assets/image2.png" alt="Vista previa 2" width="180"/>
+  <br/>
+  <img src="./readme-assets/image3.png" alt="Vista previa 3" width="400"/>
+  <img src="./readme-assets/image4.png" alt="Vista previa 4" width="400"/>
+</div>
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+---
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+**ReservApp** es una aplicación web diseñada para permitir la reserva de servicios profesionales de forma automática, simple y eficaz.
 
-## Laravel Sponsors
+---
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+## 💡 ¿Qué es ReservApp?
 
-### Premium Partners
+**ReservApp** ayuda a los profesionales a olvidarse de agendar manualmente citas, permitiéndoles enfocarse completamente en lo que mejor saben hacer: **su profesión**.
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+Tus clientes podrán ver tu disponibilidad y reservar fácilmente, mientras tú gestionas todo desde una interfaz moderna.
 
-## Contributing
+---
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+## 🧠 ¿Qué problema resuelve?
 
-## Code of Conduct
+Muchos profesionales pierden tiempo valioso coordinando horarios con sus clientes. **ReservApp automatiza ese proceso**, eliminando fricciones en la agenda y mejorando la experiencia tanto para el profesional como para sus clientes.
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+---
 
-## Security Vulnerabilities
+## 👩‍⚕️ ¿Para quién es?
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+Para **todos los profesionales fantásticos** que ofrecen servicios y desean optimizar su tiempo. Algunos ejemplos:
 
-## License
+- Psicólogos
+- Terapeutas
+- Consultores
+- Abogados
+- Entrenadores personales
+- Freelancers en general
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+---
+
+## 🔐 Requisitos de uso
+
+Para poder hacer reservaciones, **debes ser un usuario autenticado**. La autenticación es gestionada de forma segura mediante [Clerk](https://clerk.dev).
+
+---
+
+## 🛠️ Tecnologías utilizadas
+
+### 🧩 Frontend
+
+- ⚛️ React
+- 🎨 Tailwind CSS
+- 🍞 React Toastify
+- 🧼 Flowbite React
+- 🧭 React Router DOM
+- 📦 RTK Query
+
+### 🛠️ Backend
+
+- 🐘 PHP (Laravel)
+- 🔌 API REST
+- 🗃️ MySQL
+
+### 🔐 Autenticación
+
+- Clerk (gestión de usuarios, sesiones y autenticación segura)
+
+---
+
+## 🧪 Uso
+
+Una vez autenticado, los usuarios pueden:
+
+- Ver la disponibilidad de los profesionales.
+- Agendar citas de forma automatizada.
+- Consultar sus reservas desde su panel.
+
+Los profesionales pueden:
+
+- Establecer su disponibilidad.
+- Visualizar y gestionar sus reservas.
+- Recibir notificaciones del sistema.
+
+---
+
+ReservApp representa mucho más que una simple aplicación: es el resultado de mi primer gran reto como desarrollador fullstack. A lo largo de este proyecto he aprendido sobre tecnologías modernas, buenas prácticas y la importancia de crear soluciones que realmente ayuden a las personas a optimizar su tiempo y mejorar su día a día.
+
+Cada línea de código, cada error y cada pequeño avance han sido oportunidades de crecimiento personal y profesional. Estoy convencido de que el aprendizaje constante es la clave para alcanzar cualquier meta, y ReservApp es la prueba de que con dedicación y pasión se pueden lograr grandes cosas, incluso empezando desde cero.
+
+¡Gracias por tomarte el tiempo de conocer este proyecto! Espero que inspire a otros a lanzarse a crear, aprender y nunca dejar de mejorar.
