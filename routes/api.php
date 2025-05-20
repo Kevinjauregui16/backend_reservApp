@@ -1,11 +1,17 @@
 <?php
 
+use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\ServiceController;
 use App\Http\Controllers\Api\ReservationController;
 use App\Http\Controllers\Api\UserController;
 use App\Http\Controllers\Api\ServiceScheduleController;
 
-// RUTAS DE SERVICIOS
+// RUTAS DE SERVICIOS
+
+Route::get('/ping', function () {
+    return response()->json(['message' => 'API en funcionamiento']);
+});
+
 Route::prefix('services')->group(function () {
     Route::get('/', [ServiceController::class, 'index']);                // Listar todos los servicios
     Route::post('/create', [ServiceController::class, 'store']);         // Crear un servicio
