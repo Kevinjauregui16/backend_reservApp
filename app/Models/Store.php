@@ -9,6 +9,13 @@ class Store extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'name',
+        'address_id',
+        'category',
+        'phone'
+    ];
+
     public function address()
     {
         return $this->belongsTo(Address::class);

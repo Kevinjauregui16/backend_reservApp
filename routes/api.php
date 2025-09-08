@@ -5,13 +5,38 @@ use App\Http\Controllers\Api\ServiceController;
 use App\Http\Controllers\Api\ReservationController;
 use App\Http\Controllers\Api\UserController;
 use App\Http\Controllers\Api\ServiceScheduleController;
+use App\Http\Controllers\Api\ClientsController;
+use App\Http\Controllers\Api\StoresController;
+use App\Http\Controllers\Api\AddressesController;
 
-// RUTAS DE SERVICIOS
+// RUTAS DE SERVICIOS
 
 Route::get('/ping', function () {
     return response()->json(['message' => 'API en funcionamiento']);
 });
 
+Route::prefix('super-admin')->group(function () {
+//
+});
+
+Route::prefix('admin')->group(function () {
+    Route::resource('clients', ClientsController::class);
+    Route::resource('stores', StoresController::class);
+    Route::resource('addresses', AddressesController::class);
+});
+
+// Route::prefix('/clients')->group(function () {
+//     Route::post('/', [ClientsController::class, 'store']); // Crear un cliente
+//     Route::post('/create-store', [StoresController::class, 'store']); // Crear una tienda
+//     Route::post('/create-address', [AddressesController::class, 'store']); // Crear una dirección
+// });
+
+Route::prefix('customers')->group(function () {
+//
+});
+
+
+//rutas panel de usuarios
 Route::prefix('services')->group(function () {
     Route::get('/', [ServiceController::class, 'index']);                // Listar todos los servicios
     Route::post('/create', [ServiceController::class, 'store']);         // Crear un servicio
