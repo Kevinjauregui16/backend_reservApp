@@ -6,6 +6,8 @@ namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 use Database\Seeders\ServicesSeeder;
 use Database\Seeders\ServiceSchedulesSeeder;
+use Database\Seeders\RolePermissionSeeder;
+use Database\Seeders\UserSeeder;
 
 class DatabaseSeeder extends Seeder
 {
@@ -14,12 +16,20 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
+        // $this->call([
+        //     ServicesSeeder::class
+        // ]);
+
+        // $this->call([
+        //     ServiceSchedulesSeeder::class
+        // ]);
+
         $this->call([
-            ServicesSeeder::class
+            RolePermissionSeeder::class
         ]);
 
         $this->call([
-            ServiceSchedulesSeeder::class
+            UserSeeder::class
         ]);
     }
 }

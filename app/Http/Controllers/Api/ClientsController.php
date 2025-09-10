@@ -21,6 +21,7 @@ class ClientsController extends Controller
         $validatedData['password'] = bcrypt($validatedData['password']);
 
         $client = Client::create($validatedData);
+        $client->assignRole('admin');
 
         return response()->json($client, 201);
     }

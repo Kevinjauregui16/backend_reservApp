@@ -23,6 +23,7 @@ class UserController extends Controller
         ]);
 
         $user = User::create($validated);
+        $user->assignRole('user'); // Asigna el rol 'user'
 
         return response()->json([
             'message' => 'User created successfully',
