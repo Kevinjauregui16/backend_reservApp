@@ -8,6 +8,7 @@ use App\Http\Controllers\Api\ServiceScheduleController;
 use App\Http\Controllers\Api\ClientsController;
 use App\Http\Controllers\Api\StoresController;
 use App\Http\Controllers\Api\AddressesController;
+use App\Http\Controllers\Api\LoginController;
 
 // RUTAS DE SERVICIOS
 
@@ -19,6 +20,9 @@ Route::prefix('super-admin')->group(function () {
 //
 });
 
+Route::post('/login', [LoginController::class, 'login']);
+
+// middleware('auth:sanctum')->
 Route::prefix('admin')->group(function () {
     Route::resource('clients', ClientsController::class);
     Route::resource('stores', StoresController::class);

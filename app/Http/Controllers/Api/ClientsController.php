@@ -13,9 +13,12 @@ class ClientsController extends Controller
         $validatedData = $request->validate([
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:clients',
+            'password' => 'required|string|min:5',
             'phone' => 'nullable|string|max:255',
             'store_id' => 'required|exists:stores,id',
         ]);
+
+        $validatedData['password'] = bcrypt($validatedData['password']);
 
         $client = Client::create($validatedData);
 
