@@ -14,13 +14,14 @@ return new class extends Migration
         Schema::create('stores', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('category');
-            $table->string('street');
+            $table->foreignId('category_id')->constrained('categories');
+            $table->string('street')->nullable();
+            $table->string('number_ext')->nullable();
             $table->string('city');
             $table->string('state');
             $table->string('postal_code');
-            $table->string('neighborhood');
-            $table->string('url_maps')->nullable();
+            $table->string('neighborhood')->nullable();
+            $table->string('url_maps');
             $table->string('phone')->nullable();
             $table->timestamps();
         });

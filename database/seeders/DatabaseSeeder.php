@@ -8,6 +8,7 @@ use Database\Seeders\ServicesSeeder;
 use Database\Seeders\ServiceSchedulesSeeder;
 use Database\Seeders\RolePermissionSeeder;
 use Database\Seeders\UserSeeder;
+use Database\Seeders\CategoriesSeeder;
 
 class DatabaseSeeder extends Seeder
 {
@@ -30,6 +31,10 @@ class DatabaseSeeder extends Seeder
 
         $this->call([
             UserSeeder::class
+        ]);
+
+        $this->call([
+            CategoriesSeeder::class
         ]);
     }
 }

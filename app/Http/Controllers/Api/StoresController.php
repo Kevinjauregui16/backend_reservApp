@@ -12,8 +12,14 @@ class StoresController extends Controller
     {
         $validatedData = $request->validate([
             'name' => 'required|string|max:255',
-            'address_id' => 'required|exists:addresses,id',
-            'category' => 'nullable|string|max:255',
+            'category_id' => 'required|integer|exists:categories,id',
+            'street' => 'nullable|string|max:255',
+            'number_ext' => 'nullable|string|max:255',
+            'city' => 'required|string|max:255',
+            'state' => 'required|string|max:255',
+            'postal_code' => 'required|string|max:20',
+            'neighborhood' => 'nullable|string|max:255',
+            'url_maps' => 'required|url|max:255',
             'phone' => 'nullable|string|max:255'
         ]);
 

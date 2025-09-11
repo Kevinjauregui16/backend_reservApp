@@ -11,8 +11,14 @@ class Store extends Model
 
     protected $fillable = [
         'name',
-        'address_id',
-        'category',
+        'category_id',
+        'street',
+        'number_ext',
+        'city',
+        'state',
+        'postal_code',
+        'neighborhood',
+        'url_maps',
         'phone'
     ];
 

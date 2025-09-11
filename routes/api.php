@@ -23,7 +23,7 @@ Route::prefix('super-admin')->group(function () {
 Route::post('/login', [LoginController::class, 'login']);
 
 // middleware('auth:sanctum')->
-Route::prefix('admin')->group(function () {
+Route::prefix('admin')->middleware('auth:sanctum')->group(function () {
     Route::resource('clients', ClientsController::class);
     Route::resource('stores', StoresController::class);
     Route::resource('addresses', AddressesController::class);
