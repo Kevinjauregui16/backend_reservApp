@@ -12,7 +12,7 @@ class UserSeeder extends Seeder
     {
         // Crear el usuario superadmin
         $user = User::firstOrCreate(
-            ['email' => 'krkevinrogelio1600@gmail.com'],
+            ['email' => 'Support@gmail.com'],
             [
                 'name' => 'Kevin Jauregui',
                 'password' => Hash::make('1'), // Cambia la contraseña en producción

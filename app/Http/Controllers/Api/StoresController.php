@@ -8,6 +8,13 @@ use App\Models\Store;
 
 class StoresController extends Controller
 {
+
+    public function index()
+    {
+        $stores = Store::all();
+        return response()->json($stores);
+    }
+
     public function store(Request $request)
     {
         $validatedData = $request->validate([

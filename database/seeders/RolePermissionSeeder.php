@@ -10,35 +10,8 @@ class RolePermissionSeeder extends Seeder
 {
     public function run()
     {
-        // Crear permisos
-        $permissions = [
-            'manage stores',
-            'manage users',
-            'manage reservations',
-            // Agrega más permisos según tus necesidades
-        ];
-
-        foreach ($permissions as $permission) {
-            Permission::firstOrCreate(['name' => $permission]);
-        }
-
-        // Crear roles
-        $superadmin = Role::firstOrCreate(['name' => 'superadmin']);
-        $admin = Role::firstOrCreate(['name' => 'admin']);
-        $user = Role::firstOrCreate(['name' => 'user']);
-
-        // Asignar todos los permisos al superadmin
-        $superadmin->syncPermissions(Permission::all());
-
-        // Asignar permisos específicos al admin
-        $admin->syncPermissions([
-            'manage stores',
-            'manage reservations',
-        ]);
-
-        // El rol user puede tener permisos limitados o ninguno
-        $user->syncPermissions([
-            'manage reservations',
-        ]);
+        Role::firstOrCreate(['name' => 'superadmin', 'guard_name' => 'sanctum']);
+        Role::firstOrCreate(['name' => 'admin', 'guard_name' => 'sanctum']);
+        Role::firstOrCreate(['name' => 'user', 'guard_name' => 'sanctum']);
     }
 }

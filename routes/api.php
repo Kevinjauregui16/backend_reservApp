@@ -5,10 +5,13 @@ use App\Http\Controllers\Api\ServiceController;
 use App\Http\Controllers\Api\ReservationController;
 use App\Http\Controllers\Api\UserController;
 use App\Http\Controllers\Api\ServiceScheduleController;
-use App\Http\Controllers\Api\ClientsController;
 use App\Http\Controllers\Api\StoresController;
-use App\Http\Controllers\Api\AddressesController;
+// use App\Http\Controllers\Api\AddressesController;
 use App\Http\Controllers\Api\LoginController;
+use App\Http\Controllers\Api\superAdmin\DashboardController;
+use App\Http\Controllers\Api\superAdmin\CategoriesController;
+use App\Http\Controllers\Api\superAdmin\ClientsController;
+use App\Http\Controllers\Api\superAdmin\PlansController;
 
 // RUTAS DE SERVICIOS
 
@@ -16,17 +19,19 @@ Route::get('/ping', function () {
     return response()->json(['message' => 'API en funcionamiento']);
 });
 
-Route::prefix('super-admin')->group(function () {
-//
+Route::prefix('super-admin')->middleware('auth:sanctum')->group(function () {
+    Route::get('dashboard', [DashboardController::class, 'index']);
+    Route::resource('categories', CategoriesController::class);
+    Route::resource('clients', ClientsController::class);
+    Route::resource('stores', StoresController::class);
+    Route::resource('plans', PlansController::class);
+    // Route::resource('addresses', AddressesController::class);
 });
 
 Route::post('/login', [LoginController::class, 'login']);
 
-// middleware('auth:sanctum')->
 Route::prefix('admin')->middleware('auth:sanctum')->group(function () {
-    Route::resource('clients', ClientsController::class);
-    Route::resource('stores', StoresController::class);
-    Route::resource('addresses', AddressesController::class);
+    //
 });
 
 // Route::prefix('/clients')->group(function () {
@@ -36,7 +41,7 @@ Route::prefix('admin')->middleware('auth:sanctum')->group(function () {
 // });
 
 Route::prefix('customers')->group(function () {
-//
+    //
 });
 
 

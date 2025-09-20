@@ -9,6 +9,7 @@ use Database\Seeders\ServiceSchedulesSeeder;
 use Database\Seeders\RolePermissionSeeder;
 use Database\Seeders\UserSeeder;
 use Database\Seeders\CategoriesSeeder;
+use Database\Seeders\PlansSeeder;
 
 class DatabaseSeeder extends Seeder
 {
@@ -35,6 +36,10 @@ class DatabaseSeeder extends Seeder
 
         $this->call([
             CategoriesSeeder::class
+        ]);
+
+        $this->call([
+            PlansSeeder::class
         ]);
     }
 }
