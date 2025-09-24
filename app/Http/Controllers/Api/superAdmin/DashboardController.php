@@ -22,6 +22,7 @@ class DashboardController extends Controller
         $user = auth()->user();
         $userRole = $user->getRoleNames()->first();
         $plans_count = Plan::count();
+        $userName = $user->name;
 
         return response()->json([
             'message' => 'Dashboard Super Admin',
@@ -32,6 +33,7 @@ class DashboardController extends Controller
             'users_count' => $users_count,
             'clients_count' => $clients_count,
             'plans_count' => $plans_count,
+            'user_name' => $userName
         ]);
     }
 }

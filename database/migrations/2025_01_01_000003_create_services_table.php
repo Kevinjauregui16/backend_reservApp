@@ -15,10 +15,11 @@ return new class extends Migration
             $table->id();
             $table->foreignId('store_id')->constrained('stores')->onDelete('cascade');
             $table->string('name');
-            $table->decimal('ranking', 3, 1)->nullable();
             $table->text('description')->nullable();
-            $table->integer('duration')->nullable();
-            $table->decimal('price', 8, 2)->nullable();
+            $table->integer('duration');
+            $table->decimal('price', 8, 2);
+            $table->decimal('discount_price', 8, 2)->nullable();
+            $table->boolean('is_active')->default(true);
             $table->timestamps();
         });
     }

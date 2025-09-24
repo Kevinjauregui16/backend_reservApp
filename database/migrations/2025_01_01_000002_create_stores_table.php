@@ -23,6 +23,7 @@ return new class extends Migration
             $table->string('neighborhood')->nullable();
             $table->string('url_maps');
             $table->string('phone')->nullable();
+            $table->boolean('is_active')->default(true);
             $table->timestamps();
         });
     }
