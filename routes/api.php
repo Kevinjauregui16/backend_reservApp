@@ -25,7 +25,6 @@ Route::prefix('super-admin')->middleware('auth:sanctum')->group(function () {
     Route::resource('clients', ClientsController::class);
     Route::resource('stores', StoresController::class);
     Route::resource('plans', PlansController::class);
-    // Route::resource('addresses', AddressesController::class);
 });
 
 Route::post('/login', [LoginController::class, 'login']);
@@ -33,12 +32,6 @@ Route::post('/login', [LoginController::class, 'login']);
 Route::prefix('admin')->middleware('auth:sanctum')->group(function () {
     //
 });
-
-// Route::prefix('/clients')->group(function () {
-//     Route::post('/', [ClientsController::class, 'store']); // Crear un cliente
-//     Route::post('/create-store', [StoresController::class, 'store']); // Crear una tienda
-//     Route::post('/create-address', [AddressesController::class, 'store']); // Crear una dirección
-// });
 
 Route::prefix('customers')->group(function () {
     //
